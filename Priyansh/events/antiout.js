@@ -11,14 +11,14 @@ module.exports.run = async({ event, api, Threads, Users }) => {
  if (data.antiout == false) return;
  if (event.logMessageData.leftParticipantFbId == api.getCurrentUserID()) return;
  const name = global.data.userName.get(event.logMessageData.leftParticipantFbId) || await Users.getNameUser(event.logMessageData.leftParticipantFbId);
- const type = (event.author == event.logMessageData.leftParticipantFbId) ? "self-separation" : "Koi Ase Pichware Mai Lath Marta Hai?";
+ const type = (event.author == event.logMessageData.leftParticipantFbId) ? "self-separation" : "🥹";
  if (type == "self-separation") {
   api.addUserToGroup(event.logMessageData.leftParticipantFbId, event.threadID, (error, info) => {
    if (error) {
-    api.sendMessage(`${name} Ko Dubara Add Nhi Kar Paya 🥺 Group Mai :( `, event.threadID)
-   } else api.sendMessage(`🍒🎀𝐌𝐞𝐫𝐞 𝐑𝐚𝐡𝐭𝐞 𝐇𝐮𝐲𝐞⛵𝐆𝐫𝐨𝐮𝐩 𝐒𝐞 𝐍𝐚𝐡𝐢 𝐉𝐚 𝐒𝐚𝐤𝐭𝐞😡💫 \n\n
+    api.sendMessage(`${name} বস তামিম সরি অ্যাড করতে পারলাম না 🥺:( `, event.threadID)
+   } else api.sendMessage(`🍒🎀শুন ⛵আমি আর আমার বস তামিম থাকতে তু্ই গ্রূপ থেকে যাইতে পারবি না 😡💫 \n\n
   🖤 ${name} 🖤
-  \n\n🌸 𝐀𝐝𝐦𝐢𝐧 😡 𝐢𝐬𝐞 𝐀𝐩𝐩𝐫𝐨𝐯𝐚𝐥 𝐝𝐞𝐝𝐨 𝐦𝐚𝐢𝐧𝐞 𝐀𝐝𝐝 𝐤𝐫 𝐝𝐢𝐲𝐚..🙃😅`, event.threadID);
+  \n\n🌸 𝐀𝐝𝐦𝐢𝐧 😡 এটাকে 𝐀𝐩𝐩𝐫𝐨𝐯𝐚𝐥 দিয়ে দাও আমি অ্যাড দিছি .🙃😅`, event.threadID);
   })
  }
 }
