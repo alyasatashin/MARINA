@@ -1,33 +1,36 @@
+const moment = require("moment-timezone");
+
 module.exports.config = {
-  name: "admin",
-  version: "1.0.0",
-  hasPermssion: 0,
-  credits: "PREM BABU",
-  description: "Friends Dp photos",
-  commandCategory: "Random-IMG",
-  usages: "bestie dp",
-  cooldowns: 2,
-  dependencies: {
-    "request":"",
-    "fs-extra":"",
-    "axios":""
-  }
-    
+    name: "admin",
+    version: "1.0.0",
+    hasPermssion: 0,
+    credits: "Tamim", //don't change my credit
+    description: "Show Owner Info",
+    commandCategory: "info",
+    usages: "",
+    cooldowns: 5
 };
 
-module.exports.run = async({api,event,args,Users,Threads,Currencies}) => {
-const axios = global.nodemodule["axios"];
-const request = global.nodemodule["request"];
-const fs = global.nodemodule["fs-extra"];
-    var link = [
-"https://ibb.co/SDtvYzBx"
-    ];
-     var callback = () => api.sendMessage({body:`❤️𝐀𝐃𝐌𝐈𝐍 𝐈𝐍𝐅𝐎❤️
+module.exports.run = async function({ api, event }) {
+    var time = moment().tz("Asia/Dhaka").format("DD/MM/YYYY hh:mm:ss A");
 
-  🍒 ཫ༄𒁍⃝𝐌𝐀𝐑⃟𝐈𝐍𝐀🥀•
-
-𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐋𝐢𝐧𝐤 https://www.facebook.com HERE : 
-
-𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 : +923243375326`,attachment: fs.createReadStream(__dirname + "/cache/1.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.jpg"));  
-      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/1.jpg")).on("close",() => callback());
-   };
+    api.sendMessage({
+        body: `
+┏━━━━━━━━━━━━━━━━━━━━━┓
+┃      🌟 𝗢𝗪𝗡𝗘𝗥 𝗜𝗡𝗙𝗢 🌟      
+┣━━━━━━━━━━━━━━━━━━━━━┫
+┃ 👤 𝐍𝐚𝐦𝐞      : 𝐌𝐝 𝐓𝐚𝐦𝐢𝐦
+┃ 🚹 𝐆𝐞𝐧𝐝𝐞𝐫    : 𝐌𝐚𝐥𝐞
+┃ ❤️ 𝐑𝐞𝐥𝐚𝐭𝐢𝐨𝐧  : 𝐩𝐡𝐚𝐥𝐭𝐮 𝐤𝐚𝐦𝐞 𝐛𝐨𝐬𝐬 𝐓𝐚𝐦𝐢𝐦 𝐧𝐚𝐢 🤧👍
+┃ 🎂 𝐀𝐠𝐞       : 𝟏𝟕+ 𝐧𝐨𝐭 𝐲𝐞𝐭 𝐨𝐥𝐝
+┃ 🕌 𝐑𝐞𝐥𝐢𝐠𝐢𝐨𝐧  : 𝐈𝐬𝐥𝐚𝐦 
+┃ 🏫 𝐄𝐝𝐮𝐜𝐚𝐭𝐢𝐨𝐧 : 𝐒𝐭𝐮𝐝𝐞𝐧𝐭
+┃ 🏡 𝐀𝐝𝐝𝐫𝐞𝐬𝐬  : 𝐂𝐡𝐢𝐭𝐭𝐚𝐠𝐨𝐧𝐠,𝐁𝐚𝐧𝐠𝐥𝐚𝐝𝐞𝐬𝐡
+┣━━━━━━━━━━━━━━━━━━━━━┫
+┃ 🎭 𝐓𝐢𝐤𝐭𝐨𝐤   :𝐒𝐦𝐢𝐥𝐲𝐡𝐞𝐚𝐫𝐭𝟏𝟎𝟎𝐤
+┣━━━━━━━━━━━━━━━━━━━━━┫
+┃ 🕒 𝐔𝐩𝐝𝐚𝐭𝐞𝐝 𝐓𝐢𝐦𝐞:  ${time}
+┗━━━━━━━━━━━━━━━━━━━━━┛
+        `
+    }, event.threadID);
+};
