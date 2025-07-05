@@ -14,7 +14,7 @@ module.exports.handleEvent = function({ api, event, client, __GLOBAL }) {
   var { threadID, messageID } = event;
   if (event.body.indexOf("💋")==0 || event.body.indexOf("🥵")==0 || event.body.indexOf("💦")==0 || event.body.indexOf("🤤")==0) {
     var msg = {
-        body: "💐𝐁𝐡𝐚𝐠 𝐘𝐚𝐡𝐚 𝐬𝐞 𝐓𝐡𝐚𝐫𝐤𝐢 𝐈𝐧𝐬𝐚𝐚𝐧😠💐",
+        body: "💐𝘁𝗼𝗱𝗲𝗿 𝗲𝗶𝗿𝗼𝗸𝗼𝗺 𝗲𝗺𝗼𝗷𝗶 𝗱𝗲𝗸𝗵𝗲 𝗯𝗼𝗺𝗶 𝗮𝘀𝗲 😒",
       }
       api.sendMessage( msg, threadID, messageID);
     api.setMessageReaction("🤬", event.messageID, (err) => {}, true)
